@@ -1,0 +1,1 @@
+@include('publik.detail-menu')
