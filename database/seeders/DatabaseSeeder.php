@@ -29,45 +29,54 @@ class DatabaseSeeder extends Seeder
         $passwordHash = Hash::make($rawPassword);
 
         // 1. Akun Pemilik Usaha (Owner)
-        $owner = User::create([
-            'nama' => 'Bima Artayasa',
-            'email' => 'pemilik@miejawa.com',
-            'password' => $passwordHash,
-            'role' => 'owner',
-        ]);
+        $owner = User::firstOrCreate(
+            ['email' => 'pemilik@miejawa.com'],
+            [
+                'nama' => 'Bima Artayasa',
+                'password' => $passwordHash,
+                'role' => 'owner',
+            ]
+        );
 
         // 2. Akun Administrator (Admin)
-        $admin = User::create([
-            'nama' => 'Admin Pengelola Warung',
-            'email' => 'admin@miejawa.com',
-            'password' => $passwordHash,
-            'role' => 'admin',
-        ]);
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@miejawa.com'],
+            [
+                'nama' => 'Admin Pengelola Warung',
+                'password' => $passwordHash,
+                'role' => 'admin',
+            ]
+        );
 
         // 3. Satu Data Profil Usaha (Entitas baris tunggal)
-        ProfilUsaha::create([
-            'updated_by' => $owner->id,
-            'nama_usaha' => 'Mie Jawa Masak Anglo Arang',
-            'deskripsi' => 'Warung kuliner Mie Jawa bercita rasa autentik. Diracik dengan bumbu rempah ulekan segar, kaldu ayam kampung gurih, dan dimasak langsung menggunakan wajan anglo arang.',
-            'alamat' => 'Jl. Sultan Abdurrahman, Mie Goreng Jawa, Pontianak, Kalimantan Barat',
-            'latitude' => -0.03550000,
-            'longitude' => 109.33100000,
-            'no_whatsapp' => '081549077231',
-            'instagram' => '@miejawa.official',
-            'jam_operasional' => 'Senin - Sabtu: 18.00 - 22.00 WIB | Minggu: Tutup / Libur',
-            'logo' => null,
-        ]);
+        $profil = ProfilUsaha::first();
+        if (! $profil) {
+            ProfilUsaha::create([
+                'updated_by' => $owner->id,
+                'nama_usaha' => 'Mie Jawa Masak Anglo Arang',
+                'deskripsi' => 'Warung kuliner Mie Jawa bercita rasa autentik. Diracik dengan bumbu rempah ulekan segar, kaldu ayam kampung gurih, dan dimasak langsung menggunakan wajan anglo arang.',
+                'alamat' => 'Jl. Sultan Abdurrahman, Mie Goreng Jawa, Pontianak, Kalimantan Barat',
+                'latitude' => -0.03550000,
+                'longitude' => 109.33100000,
+                'no_whatsapp' => '081549077231',
+                'instagram' => '@miejawa.official',
+                'jam_operasional' => 'Senin - Sabtu: 18.00 - 22.00 WIB | Minggu: Tutup / Libur',
+                'logo' => null,
+            ]);
+        }
 
         // 4. Satu Data Promosi Awal
-        Promosi::create([
-            'created_by' => $owner->id,
-            'judul' => 'Promo Traktiran Sore: Diskon 15% Jam 16:00 - 18:00',
-            'deskripsi' => 'Nikmati diskon spesial 15% untuk setiap pembelian menu mie kuah atau goreng pada jam santai sore hari.',
-            'banner' => null,
-            'tanggal_mulai' => now()->subDays(3)->toDateString(),
-            'tanggal_selesai' => now()->addDays(30)->toDateString(),
-            'is_aktif' => true,
-        ]);
+        if (Promosi::count() === 0) {
+            Promosi::create([
+                'created_by' => $owner->id,
+                'judul' => 'Promo Traktiran Sore: Diskon 15% Jam 16:00 - 18:00',
+                'deskripsi' => 'Nikmati diskon spesial 15% untuk setiap pembelian menu mie kuah atau goreng pada jam santai sore hari.',
+                'banner' => null,
+                'tanggal_mulai' => now()->subDays(3)->toDateString(),
+                'tanggal_selesai' => now()->addDays(30)->toDateString(),
+                'is_aktif' => true,
+            ]);
+        }
 
         // 5. Enam Data Menu Contoh Placeholder
         $daftarMenu = [
@@ -134,7 +143,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($daftarMenu as $item) {
-            Menu::create($item);
+            Menu::firstOrCreate(['nama_menu' => $item['nama_menu']], $item);
         }
     }
 }
