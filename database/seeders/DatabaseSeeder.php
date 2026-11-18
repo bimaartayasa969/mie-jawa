@@ -45,21 +45,21 @@ class DatabaseSeeder extends Seeder
         );
 
         // 3. Satu Data Profil Usaha (Entitas baris tunggal)
-        $profil = ProfilUsaha::first();
-        if (! $profil) {
-            ProfilUsaha::create([
+        ProfilUsaha::updateOrCreate(
+            ['id' => 1],
+            [
                 'updated_by' => $owner->id,
                 'nama_usaha' => 'Mie Jawa Masak Anglo Arang',
                 'deskripsi' => 'Warung kuliner Mie Jawa bercita rasa autentik. Diracik dengan bumbu rempah ulekan segar, kaldu ayam kampung gurih, dan dimasak langsung menggunakan wajan anglo arang.',
                 'alamat' => 'Jl. Sultan Abdurrahman, Mie Goreng Jawa, Pontianak, Kalimantan Barat',
                 'latitude' => -0.03550000,
                 'longitude' => 109.33100000,
-                'no_whatsapp' => '081549077231',
+                'no_whatsapp' => '083845863786',
                 'instagram' => '@miejawa.official',
                 'jam_operasional' => 'Senin - Sabtu: 18.00 - 22.00 WIB | Minggu: Tutup / Libur',
                 'logo' => null,
-            ]);
-        }
+            ]
+        );
 
         // 4. Data Promosi Awal (Daftar Menu & Promo)
         Promosi::updateOrCreate(

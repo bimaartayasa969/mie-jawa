@@ -4,7 +4,7 @@
 @section('description', 'Warung kuliner Mie Jawa khas wajan anglo arang di Pontianak. Kaldu ayam kampung gurih, bumbu rempah ulekan segar, dan aroma wajan arang sedap.')
 
 @php
-    $waNumber = $profil && $profil->no_whatsapp ? preg_replace('/[^0-9]/', '', $profil->no_whatsapp) : '6281549077231';
+    $waNumber = $profil && $profil->no_whatsapp ? preg_replace('/[^0-9]/', '', $profil->no_whatsapp) : '6283845863786';
     if (str_starts_with($waNumber, '0')) {
         $waNumber = '62' . substr($waNumber, 1);
     }

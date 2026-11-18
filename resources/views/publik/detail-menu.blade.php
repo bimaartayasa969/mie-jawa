@@ -4,7 +4,7 @@
 @section('description', 'Detail sajian ' . $menu->nama_menu . ' khas warung Mie Jawa masak anglo arang. ' . \Illuminate\Support\Str::limit($menu->deskripsi, 140))
 
 @php
-    $waNumber = $profil && $profil->no_whatsapp ? preg_replace('/[^0-9]/', '', $profil->no_whatsapp) : '6281549077231';
+    $waNumber = $profil && $profil->no_whatsapp ? preg_replace('/[^0-9]/', '', $profil->no_whatsapp) : '6283845863786';
     if (str_starts_with($waNumber, '0')) {
         $waNumber = '62' . substr($waNumber, 1);
     }
