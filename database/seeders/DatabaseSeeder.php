@@ -20,12 +20,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Mengambil kata sandi awal dari .env (tidak disimpan langsung di berkas kode ini)
-        $rawPassword = env('DEFAULT_PASSWORD');
-        if (empty($rawPassword)) {
-            throw new \RuntimeException('Variabel DEFAULT_PASSWORD belum disetel di .env.');
-        }
-
+        // Mengambil kata sandi awal dari .env (fallback ke default jika belum disetel)
+        $rawPassword = env('DEFAULT_PASSWORD', 'MieJawa#2026');
         $passwordHash = Hash::make($rawPassword);
 
         // 1. Akun Pemilik Usaha (Owner)
