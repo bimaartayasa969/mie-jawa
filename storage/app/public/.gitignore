@@ -1,2 +1,8 @@
 *
 !.gitignore
+!menu/
+!menu/**
+!promosi/
+!promosi/**
+!profil/
+!profil/**

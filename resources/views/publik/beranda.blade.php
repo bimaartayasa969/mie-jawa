@@ -106,7 +106,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-r from-[#B3281A] via-[#8F1F14] to-[#6E140C] rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
                 <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                    <div class="space-y-2 max-w-2xl">
+                    @if ($promosiAktif->banner && (file_exists(public_path('storage/' . $promosiAktif->banner)) || \Illuminate\Support\Facades\Storage::disk('public')->exists($promosiAktif->banner)))
+                        <div class="w-full sm:w-56 md:w-64 h-48 md:h-52 rounded-2xl overflow-hidden shadow-lg shrink-0 border-2 border-white/20 bg-black/20">
+                            <img src="{{ asset('storage/' . $promosiAktif->banner) }}" alt="{{ $promosiAktif->judul }}" class="w-full h-full object-cover">
+                        </div>
+                    @endif
+                    <div class="space-y-2 max-w-2xl flex-1">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-xs text-[#F2B84B] text-[11px] font-bold tracking-wider uppercase">
                             <span>🏷️ PROMO HARI INI</span>
                             <span>•</span>
