@@ -134,7 +134,7 @@
                             Nomor WhatsApp Pemesanan <span class="text-[#B3281A]">*</span>
                         </label>
                         <input type="text" id="no_whatsapp" name="no_whatsapp"
-                            value="{{ old('no_whatsapp', $profil->no_whatsapp) }}" required placeholder="081549077231"
+                            value="{{ old('no_whatsapp', $profil->no_whatsapp) }}" required placeholder="083845863186"
                             class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('no_whatsapp') ? 'border-rose-400 bg-rose-50/50' : 'border-[#E5D7C3] bg-white' }} text-xs sm:text-sm text-[#2B1B10] focus:outline-none focus:border-[#B3281A] focus:ring-2 focus:ring-[#B3281A]/10 min-h-[44px]">
                         <p class="text-[11px] text-[#8C7A70]">Tautan WhatsApp publik: <span
                                 class="font-mono text-[#B3281A]">https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $profil->no_whatsapp)) }}</span>

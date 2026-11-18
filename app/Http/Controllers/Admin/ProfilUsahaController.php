@@ -28,7 +28,7 @@ class ProfilUsahaController extends Controller
                 'alamat' => 'Jl. Sultan Abdurrahman, Mie Goreng Jawa, Pontianak, Kalimantan Barat',
                 'latitude' => -0.03550000,
                 'longitude' => 109.33100000,
-                'no_whatsapp' => '081549077231',
+                'no_whatsapp' => '083845863186',
                 'instagram' => '@miejawa.official',
                 'jam_operasional' => "Senin - Sabtu: 17.00 - 23.00 WIB\nMinggu: Tutup / Libur",
             ]
