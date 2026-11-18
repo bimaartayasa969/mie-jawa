@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>@yield('title', 'Mie Jawa Masak Anglo Arang - Kenikmatan Tradisional Autentik')</title>
     <meta name="description" content="@yield('description', 'Warung kuliner Mie Jawa bercita rasa autentik khas wajan anglo arang di Pontianak. Kaldu ayam kampung gurih, bumbu rempah ulekan segar.')">
     <link rel="icon" href="{{ asset('favicon.ico') }}">

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>@yield('title', 'Dasbor Pengelolaan') - Panel Mie Jawa</title>
     <meta name="description" content="@yield('meta_description', 'Panel pengelolaan operasional menu hidangan, kampanye promosi, dan profil usaha UMKM Mie Jawa.')">
     <meta name="robots" content="noindex, nofollow">
