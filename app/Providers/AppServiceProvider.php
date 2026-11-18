@@ -23,7 +23,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Paksa skema HTTPS di server produksi/cloud (Railway) agar aset CSS/JS tidak terblokir Mixed Content
-        if ($this->app->environment('production') || request()->header('X-Forwarded-Proto') === 'https') {
+        if ($this->app->environment('production') 
+            || str_contains(request()->getHost(), 'railway.app') 
+            || request()->header('x-forwarded-proto') === 'https'
+            || request()->server('HTTP_X_FORWARDED_PROTO') === 'https') {
             URL::forceScheme('https');
         }
 
