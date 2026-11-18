@@ -2,7 +2,7 @@
     $profil = \App\Models\ProfilUsaha::first();
     $namaUsaha = $profil ? $profil->nama_usaha : 'Mie Jawa Masak Anglo Arang';
     $alamat = $profil ? $profil->alamat : 'Jl. Sultan Abdurrahman, Mie Goreng Jawa, Pontianak, Kalimantan Barat';
-    $noWa = $profil && $profil->no_whatsapp ? $profil->no_whatsapp : '0838 4586 3786';
+    $noWa = $profil && $profil->no_whatsapp ? $profil->no_whatsapp : '0838 4586 3186';
     $ig = $profil && $profil->instagram ? $profil->instagram : '@miejawa.official';
     $jam = $profil && $profil->jam_operasional ? $profil->jam_operasional : 'Senin - Sabtu: 18.00 - 22.00 WIB | Minggu: Tutup / Libur';
 @endphp

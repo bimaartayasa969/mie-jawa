@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
                 'alamat' => 'Jl. Sultan Abdurrahman, Mie Goreng Jawa, Pontianak, Kalimantan Barat',
                 'latitude' => -0.03550000,
                 'longitude' => 109.33100000,
-                'no_whatsapp' => '083845863786',
+                'no_whatsapp' => '083845863186',
                 'instagram' => '@miejawa.official',
                 'jam_operasional' => 'Senin - Sabtu: 18.00 - 22.00 WIB | Minggu: Tutup / Libur',
                 'logo' => null,

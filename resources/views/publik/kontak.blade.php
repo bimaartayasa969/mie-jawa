@@ -4,7 +4,7 @@
 @section('description', 'Hubungi pengelola warung Mie Jawa Pontianak via WhatsApp atau media sosial. Kirim pertanyaan menu, pesanan porsi banyak, atau reservasi meja.')
 
 @php
-    $noWa = $profil && $profil->no_whatsapp ? $profil->no_whatsapp : '0838 4586 3786';
+    $noWa = $profil && $profil->no_whatsapp ? $profil->no_whatsapp : '0838 4586 3186';
     $waClean = preg_replace('/[^0-9]/', '', $noWa);
     if (str_starts_with($waClean, '0')) {
         $waClean = '62' . substr($waClean, 1);
