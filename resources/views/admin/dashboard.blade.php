@@ -16,7 +16,7 @@
                 Ringkasan Bisnis &amp; Finansial Mie Jawa
             </h1>
             <p class="text-sm sm:text-base text-[#6B5B52] mt-2 leading-relaxed">
-                Akses eksklusif Anda untuk memantau performa katalog hidangan, ketersediaan bahan dapur, kampanye promosi, dan rekening pencairan warung.
+                Akses eksklusif Anda untuk memantau performa katalog hidangan, ketersediaan bahan dapur, kampanye promosi, dan profil informasi warung.
             </p>
         </div>
 
@@ -28,8 +28,8 @@
         </div>
     </div>
 
-    <!-- 4 Kartu Metrik Utama Sesuai Kebutuhan User & Mockup 165611 -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- 3 Kartu Metrik Utama Sesuai Kebutuhan User & Mockup -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
         <!-- 1. Total Menu -->
         <div class="bg-white rounded-2xl p-5 sm:p-6 border border-[#F5E8D3] shadow-xs">
@@ -75,23 +75,6 @@
             </div>
         </div>
 
-        <!-- 4. Rekening Pencairan & Info Toko -->
-        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-[#F5E8D3] shadow-xs">
-            <div class="flex items-center justify-between text-xs sm:text-sm text-[#8C7A70] uppercase font-bold tracking-wider">
-                <span>Rekening Pencairan</span>
-                <span class="text-xl text-indigo-500">💳</span>
-            </div>
-            <div class="text-base sm:text-lg font-bold text-[#2B1B10] mt-2.5 truncate">
-                BCA (Bank Central Asia)
-            </div>
-            <div class="text-xs sm:text-sm text-[#8C7A70] mt-1 truncate">
-                8910-2341-99 a/n {{ auth()->user()->nama }}
-            </div>
-            <div class="text-xs text-emerald-700 font-semibold mt-1">
-                ● Wewenang Pemilik Usaha
-            </div>
-        </div>
-
     </div>
 
     <!-- Tautan Menu Cepat Khusus Pemilik Usaha -->
@@ -109,7 +92,7 @@
             <div class="w-12 h-12 rounded-xl bg-[#FEF2F2] text-[#B3281A] flex items-center justify-center text-2xl mb-3 group-hover:scale-105 transition">
                 🏪
             </div>
-            <h3 class="font-bold text-base sm:text-lg text-[#2B1B10]">Profil Bisnis &amp; Rekening</h3>
+            <h3 class="font-bold text-base sm:text-lg text-[#2B1B10]">Profil Usaha &amp; Kontak</h3>
             <p class="text-xs sm:text-sm text-[#6B5B52] mt-1">Perbarui nomor WhatsApp, alamat Pontianak, dan jam operasional.</p>
         </a>
 
