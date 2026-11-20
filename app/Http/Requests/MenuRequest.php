@@ -25,19 +25,21 @@ class MenuRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        // Tangani status ketersediaan jika dikirimkan dari checkbox form
-        if ($this->has('status_tersedia')) {
-            $this->merge([
-                'status' => $this->boolean('status_tersedia') ? 'tersedia' : 'habis',
-            ]);
-        } elseif (! $this->has('status') && $this->isMethod('POST')) {
-            // Nilai baku jika checkbox status tidak terkirim
-            $this->merge([
-                'status' => 'tersedia',
-            ]);
+        // 1. Tangani penentuan status ketersediaan bahan menu ('tersedia' atau 'habis')
+        if ($this->filled('status')) {
+            $status = $this->input('status');
+        } elseif ($this->has('status_tersedia')) {
+            $status = $this->boolean('status_tersedia') ? 'tersedia' : 'habis';
+        } elseif ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            // Pada formulir edit, jika status tidak terkirim (misal checkbox tidak dicentang), berarti habis
+            $status = 'habis';
+        } else {
+            // Nilai baku saat tambah hidangan baru
+            $status = 'tersedia';
         }
 
         $this->merge([
+            'status' => $status,
             'is_unggulan' => $this->boolean('is_unggulan'),
         ]);
     }

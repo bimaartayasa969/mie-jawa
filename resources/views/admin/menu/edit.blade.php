@@ -131,19 +131,55 @@
                 </div>
             </div>
 
-            <!-- 5. Saklar Status Ketersediaan & Menu Unggulan -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
-                <!-- Status Tersedia -->
-                <label class="p-4 rounded-2xl border border-[#F5E8D3] bg-white hover:bg-[#FFFDF9] flex items-start gap-3 cursor-pointer min-h-[44px] transition shadow-xs">
-                    <input type="checkbox" name="status_tersedia" value="1" 
-                        {{ old('status_tersedia', $menu->status === 'tersedia') ? 'checked' : '' }}
-                        class="w-5 h-5 text-[#B3281A] border-[#E5D7C3] rounded focus:ring-[#B3281A] mt-0.5">
-                    <div>
-                        <div class="text-xs font-bold text-[#2B1B10]">Status Tersedia</div>
-                        <div class="text-[11px] text-[#8C7A70]">Dapat dipesan langsung oleh pelanggan</div>
+            <!-- 5. Status Ketersediaan Bahan Baku & Menu Unggulan -->
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-[#2B1B10] uppercase tracking-wider mb-2">
+                        Status Ketersediaan Bahan Baku <span class="text-[#B3281A]">*</span>
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Pilihan 1: Tersedia -->
+                        <label id="label-status-tersedia" 
+                            class="p-4 rounded-2xl border-2 cursor-pointer transition min-h-[44px] flex items-center justify-between {{ old('status', $menu->status) === 'tersedia' ? 'border-emerald-600 bg-emerald-50/50' : 'border-[#E5D7C3] bg-white hover:border-emerald-300' }}">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="status" value="tersedia" 
+                                    {{ old('status', $menu->status) === 'tersedia' ? 'checked' : '' }}
+                                    onchange="updateStatusCardStyle('tersedia')"
+                                    class="w-5 h-5 text-emerald-600 border-gray-300 focus:ring-emerald-500">
+                                <div>
+                                    <div class="text-xs font-bold text-[#2B1B10] flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+                                        <span>Tersedia</span>
+                                    </div>
+                                    <div class="text-[11px] text-[#6B5B52]">Bahan baku siap &amp; dapat dipesan</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-emerald-700 font-bold">✓</span>
+                        </label>
+
+                        <!-- Pilihan 2: Habis / Tidak Tersedia -->
+                        <label id="label-status-habis" 
+                            class="p-4 rounded-2xl border-2 cursor-pointer transition min-h-[44px] flex items-center justify-between {{ old('status', $menu->status) === 'habis' ? 'border-[#B3281A] bg-rose-50/50' : 'border-[#E5D7C3] bg-white hover:border-rose-300' }}">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="status" value="habis" 
+                                    {{ old('status', $menu->status) === 'habis' ? 'checked' : '' }}
+                                    onchange="updateStatusCardStyle('habis')"
+                                    class="w-5 h-5 text-[#B3281A] border-gray-300 focus:ring-[#B3281A]">
+                                <div>
+                                    <div class="text-xs font-bold text-[#B3281A] flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-[#B3281A] inline-block"></span>
+                                        <span>Habis / Tidak Tersedia</span>
+                                    </div>
+                                    <div class="text-[11px] text-[#6B5B52]">Bahan habis, tampil dengan tanda 'Habis'</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-[#B3281A] font-bold">✕</span>
+                        </label>
                     </div>
-                </label>
+                    @error('status')
+                        <p class="text-[11px] text-[#B3281A] font-semibold mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
 
                 <!-- Menu Unggulan -->
                 <label class="p-4 rounded-2xl border border-[#F5E8D3] bg-white hover:bg-[#FFFDF9] flex items-start gap-3 cursor-pointer min-h-[44px] transition shadow-xs">
@@ -151,11 +187,10 @@
                         {{ old('is_unggulan', $menu->is_unggulan) ? 'checked' : '' }}
                         class="w-5 h-5 text-[#B3281A] border-[#E5D7C3] rounded focus:ring-[#B3281A] mt-0.5">
                     <div>
-                        <div class="text-xs font-bold text-[#2B1B10]">Menu Unggulan</div>
-                        <div class="text-[11px] text-[#8C7A70]">Tampil di pilihan 4 menu beranda</div>
+                        <div class="text-xs font-bold text-[#2B1B10]">Jadikan Menu Unggulan</div>
+                        <div class="text-[11px] text-[#8C7A70]">Tampilkan di pilihan menu unggulan beranda website</div>
                     </div>
                 </label>
-
             </div>
 
             <!-- Tombol Aksi Batal & Simpan Perubahan -->
@@ -180,6 +215,18 @@
 </div>
 
 <script>
+    function updateStatusCardStyle(status) {
+        const labelTersedia = document.getElementById('label-status-tersedia');
+        const labelHabis = document.getElementById('label-status-habis');
+        if (status === 'tersedia') {
+            labelTersedia.className = 'p-4 rounded-2xl border-2 cursor-pointer transition min-h-[44px] flex items-center justify-between border-emerald-600 bg-emerald-50/50';
+            labelHabis.className = 'p-4 rounded-2xl border-2 cursor-pointer transition min-h-[44px] flex items-center justify-between border-[#E5D7C3] bg-white hover:border-rose-300';
+        } else {
+            labelTersedia.className = 'p-4 rounded-2xl border-2 cursor-pointer transition min-h-[44px] flex items-center justify-between border-[#E5D7C3] bg-white hover:border-emerald-300';
+            labelHabis.className = 'p-4 rounded-2xl border-2 cursor-pointer transition min-h-[44px] flex items-center justify-between border-[#B3281A] bg-rose-50/50';
+        }
+    }
+
     function previewUploadedImage(event) {
         const file = event.target.files[0];
         if (file) {
