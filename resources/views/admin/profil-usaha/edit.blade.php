@@ -9,18 +9,18 @@
         <!-- Header Informasi Warung Sesuai Mockup -->
         <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-[#F5E8D3]">
             <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span class="text-[11px] font-bold tracking-wider text-[#B3281A] uppercase">
+                <span class="text-xs sm:text-sm font-bold tracking-wider text-[#B3281A] uppercase">
                     INFORMASI WARUNG
                 </span>
                 <span
-                    class="text-[10px] font-bold tracking-wider text-[#995200] uppercase bg-[#FEF3C7] px-2.5 py-0.5 rounded-full border border-[#FCD34D]">
+                    class="text-xs sm:text-sm font-bold tracking-wider text-[#995200] uppercase bg-[#FEF3C7] px-3 py-1 rounded-full border border-[#FCD34D]">
                     Akses Pengelola
                 </span>
             </div>
-            <h1 class="text-2xl sm:text-3xl font-serif font-bold text-[#2B1B10]">
+            <h1 class="text-2xl sm:text-4xl font-serif font-bold text-[#2B1B10]">
                 Pengaturan Profil Usaha
             </h1>
-            <p class="text-xs sm:text-sm text-[#6B5B52] mt-1">
+            <p class="text-sm sm:text-base text-[#6B5B52] mt-1">
                 Kelola data cabang, titik koordinat Google Maps, informasi kontak pemesanan, dan identitas resmi UMKM Mie
                 Jawa.
             </p>
