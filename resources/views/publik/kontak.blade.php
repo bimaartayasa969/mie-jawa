@@ -49,14 +49,10 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-2 sm:flex-col sm:items-stretch shrink-0">
-                        <a href="tel:{{ $waClean }}" class="px-4 py-2 bg-white border border-[#E5D7C3] hover:border-[#B3281A] text-[#2B1B10] text-xs font-semibold rounded-xl min-h-[44px] flex items-center justify-center gap-1.5 transition">
+                    <div class="shrink-0">
+                        <a href="tel:{{ $waClean }}" class="px-5 py-2.5 bg-white border border-[#E5D7C3] hover:border-[#B3281A] text-[#2B1B10] text-xs sm:text-sm font-semibold rounded-xl min-h-[44px] flex items-center justify-center gap-2 transition">
                             <span>📞</span>
-                            <span>Telepon</span>
-                        </a>
-                        <a href="https://wa.me/{{ $waClean }}?text={{ urlencode('Halo Warung Mie Jawa, saya ingin bertanya.') }}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-xl min-h-[44px] flex items-center justify-center gap-1.5 transition">
-                            <span>💬</span>
-                            <span>Chat WA</span>
+                            <span>Panggil Telepon</span>
                         </a>
                     </div>
                 </div>

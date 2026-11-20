@@ -41,9 +41,9 @@
                         <span>→</span>
                     </a>
 
-                    <a href="{{ $waUrl }}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 bg-white hover:bg-[#F5E8D3] border border-[#E5D7C3] text-[#2B1B10] font-semibold rounded-2xl shadow-xs min-h-[44px] flex items-center gap-2 transition">
-                        <span>💬</span>
-                        <span>Tanya via WhatsApp</span>
+                    <a href="{{ route('kontak') }}" class="px-6 py-3.5 bg-white hover:bg-[#F5E8D3] border border-[#E5D7C3] text-[#2B1B10] font-semibold rounded-2xl shadow-xs min-h-[44px] flex items-center gap-2 transition">
+                        <span>📍</span>
+                        <span>Hubungi &amp; Lokasi</span>
                     </a>
                 </div>
 
